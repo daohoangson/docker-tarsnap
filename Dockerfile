@@ -31,18 +31,6 @@ RUN apk add --no-cache --update $TARSNAP_MAKE_PACKAGES $TARSNAP_RUN_PACKAGES \
 	&& (rm "/tmp/"* 2>/dev/null || true) \
 	&& (rm -rf /var/cache/apk/* 2>/dev/null || true)
 
-RUN {\
-		echo "cachedir $TARSNAP_CACHE_DIR_PATH"; \
-		echo "keyfile $TARSNAP_KEY_FILE_PATH"; \
-		echo '# Do not archive files which have the nodump flag set'; \
-		echo 'nodump'; \
-		echo '# Print statistics when creating or deleting archives'; \
-		echo 'print-stats'; \
-		echo '# Create a checkpoint once per GB of uploaded data'; \
-		echo 'checkpoint-bytes 1G'; \
-		echo '# See more at http://www.tarsnap.com/man-tarsnap.conf.5.html'; \
-	} > /usr/local/etc/tarsnap.conf
-
 VOLUME ["/tarsnap"]
 
 COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh

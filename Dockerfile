@@ -13,6 +13,7 @@ ENV TARSNAP_MAKE_PACKAGES \
 	zlib-dev
 
 ENV TARSNAP_RUN_PACKAGES \
+	coreutils \
 	openssl
 
 ENV TARSNAP_BUILD_PATH="/src/tarsnap/"

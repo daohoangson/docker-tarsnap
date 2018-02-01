@@ -1,7 +1,7 @@
 #!/bin/sh
 
 _hubImage='xfrocks/tarsnap'
-_hubImageWithTag="$_hubImage:1.0.39"
+_hubImageWithTag="$_hubImage:1.0.39b"
 
 docker build . \
   -t "$_hubImage" \
